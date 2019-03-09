@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function aggiungiPunti(){
+                let text=document.getElementById("input").value;
+                let i;
+                let result="";
+                for(i=text.length-1;i>-1;i--){
+                    console.log(text[i]);
+                    console.log(text.length-1-i);
+                    
+                    if((text.length-1-i)%3==0 && (text.length-1-i)!=0){
+                        result="."+result;
+                    }
+
+                    result=text[i]+result;
+                    
+                    console.log("--------");
+                }
+                console.log(result);
+                document.getElementById("input").value=result;
+            }
+
+            function togliPunti(){
+                let text=document.getElementById("input").value;
+                let i;
+                let result="";
+
+                for(i=0;i<text.length;i++){
+                    if(text[i]!="."){
+                        result=result+text[i];
+                    }
+                }
+
+                console.log(parseInt(result));
+            }
+            function ciSonoPunti(){
+                let text=document.getElementById("input").value;
+                let i;
+                let result=false;
+                for(i=0;i<text.length&&result==false;i++){
+                    if(text[i]=='.'){
+                        result=true;
+                    }
+                }
+                console.log(result);
+                return result;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="input"/>
+        <input type="text" id="output"/>
+        <input type="button" onclick="aggiungiPunti(),ciSonoPunti(),togliPunti()" value="Calcola"/>
+    </body>
+</html>
